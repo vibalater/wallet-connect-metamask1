@@ -6,8 +6,6 @@ import React, {useState} from 'react';
 import {providers} from "ethers";
 
 const walletConnectProvider = new WalletConnectProvider({
-    rpc: 'https://mainnet.optimism.io',
-    chainId: 10,
     // qrcode: false,
     qrcodeModalOptions: {
         mobileLinks: 'metamask',
