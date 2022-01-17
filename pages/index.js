@@ -6,7 +6,10 @@ import React, {useState} from 'react';
 import {providers} from "ethers";
 
 const walletConnectProvider = new WalletConnectProvider({
-    rpc: {421611: 'https://rinkeby.arbitrum.io/rpc'},
+    rpc: {
+      421611: 'https://rinkeby.arbitrum.io/rpc',
+      28: 'https://rinkeby.boba.network/'
+    },
     chainId: parseInt('0x66EEB', 16),
     // qrcode: false,
     qrcodeModalOptions: {
@@ -21,11 +24,14 @@ export default function Home() {
   const onConnect = () => {
     walletConnectProvider.enable().then(() => {
       const web3Provider = new providers.Web3Provider(walletConnectProvider);
-      web3Provider.getSigner().then((signer) => {
-        signer.signMessge("test").then((msg) => {
-          setMsg(msg);
+      setTimeout(() => {
+        web3Provider.getSigner().then((signer) => {
+          signer.signMessge("test").then((msg) => {
+            setMsg(msg);
+          }).catch((err) => console.error(err));
         }).catch((err) => console.error(err));
-      }).catch((err) => console.error(err));
+      }, 1000);
+      
     })
     .catch(err => console.error(err));
   }
