@@ -6,6 +6,8 @@ import React, {useState} from 'react';
 import {providers} from "ethers";
 
 const walletConnectProvider = new WalletConnectProvider({
+    rpc: 'https://rinkeby.arbitrum.io/rpc',
+    chainId: parseInt('0x66EEB', 16),
     // qrcode: false,
     qrcodeModalOptions: {
         mobileLinks: 'metamask',
