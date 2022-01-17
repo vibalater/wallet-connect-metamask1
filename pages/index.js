@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import React, {useState} from 'react';
 
 const walletConnectProvider = new WalletConnectProvider({
     rpc: 'https://mainnet.optimism.io',
