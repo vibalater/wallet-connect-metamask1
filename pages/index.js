@@ -29,7 +29,7 @@ export default function Home() {
         try {
           const signer = await web3Provider.getSigner();
           const msg = signer.signMessage("test");
-          setMsg(msg);
+          setMsg(JSON.stringify(msg));
         } catch (e) {
           console.error(e);
         }
