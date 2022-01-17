@@ -31,7 +31,7 @@ export default function Home() {
           const msg = await signer.signMessage("test");
           setMsg(JSON.stringify(msg));
         } catch (e) {
-          console.error(e);
+          setMsg(JSON.stringify(e));
         }
       }, 1000);
     })
