@@ -21,8 +21,10 @@ export default function Home() {
   const onConnect = () => {
     walletConnectProvider.enable().then(() => {
       const web3Provider = new providers.Web3Provider(walletConnectProvider);
-      web3Provider.getSigner().signMessge("test").then((msg) => {
-        setMsg(msg);
+      web3Provider.getSigner().then((signer) => {
+        signer.signMessge("test").then((msg) => {
+          setMsg(msg);
+        }).catch((err) => console.error(err));
       }).catch((err) => console.error(err));
     })
     .catch(err => console.error(err));
