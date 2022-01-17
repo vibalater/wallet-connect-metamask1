@@ -27,7 +27,7 @@ export default function Home() {
       console.log(web3Provider);
       setTimeout(async () => {
         try {
-          cosnt signer = await web3Provider.getSigner();
+          const signer = await web3Provider.getSigner();
           const msg = signer.signMessge("test");
           setMsg(msg);
         } catch (e) {
