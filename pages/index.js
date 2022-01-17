@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import React, {useState} from 'react';
+import {providers} from "ethers";
 
 const walletConnectProvider = new WalletConnectProvider({
     rpc: 'https://mainnet.optimism.io',
@@ -19,7 +20,8 @@ export default function Home() {
 
   const onConnect = () => {
     walletConnectProvider.enable().then(() => {
-      walletConnectProvider.getSigner().signMessge("test").then((msg) => {
+      const web3Provider = new providers.Web3Provider(walletConnectProvider);
+      web3Provider.getSigner().signMessge("test").then((msg) => {
         setMsg(msg);
       }).catch((err) => console.error(err));
     })
