@@ -34,7 +34,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <button onClick=>connect</button>
+        <button onClick="onConnect">connect</button>
 
         <p className={styles.description}>
           {msg}
